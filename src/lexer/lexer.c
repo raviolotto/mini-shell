@@ -6,11 +6,18 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/08 15:58:25 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:45:58 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/mini_shell.h"
+#include "../../includes/mini_shell.h"
+
+int	is_token(char *str)
+{
+	if (ft_strncmp(str, "|", 1) == 0)
+		return (0);
+
+}
 
 int	iswhite(char c)
 {
@@ -24,17 +31,18 @@ int	jumpspace(char *str, int i)
 	return (i);
 }
 
-int	lexer(char *args)
+int	lexer(t_general *general)
 {
 	int i;
 
 	i = 0;
-	while(args[i])
+	while(general->args[i])
 	{
-		i = jumpspace(args, i);
-		if (is_token(args[i]) == 0)
-			i += menage_token(args[i], )
-		else if(is_command(args[i]) != 0)
+		i = jumpspace(general->args[i], i);
+		if (is_token(general->args[i]) == 0)
+			i += menage_token(general->args, i, general->lexer);
+		else
+			i += is_command(general->args, i, general->lexer);
 	}
 	return(i);
 }

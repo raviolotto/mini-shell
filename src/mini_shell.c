@@ -6,17 +6,18 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:17:29 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/08 16:00:49 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:48:44 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/mini_shell.h"
+#include "../includes/mini_shell.h"
 
-int main(int ac, char **av, char **envp)
+int	main(int ac, char **av, char **envp)
 {
-	t_general	general
+	t_general	general;
 
-	if(ac != 1 || av[1])
+	general.args = "    ls -la | cat";
+	if (ac != 1 || av[1])
 	{
 		printf(RED "merror dumb imput\n" RESET);
 		exit(0);

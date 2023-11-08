@@ -6,13 +6,13 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:35:26 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/08 15:46:06 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:48:20 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 
-int	lexer(char *args);
+int	lexer(t_general *general);
 
 #endif
