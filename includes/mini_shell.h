@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:31:51 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/08 13:31:54 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:33:24 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "structure.h"
 # include "parser.h"
 # include "visual.h"
+# include <readline/readline.h>
+# include <readline/history.h>
 
 
 

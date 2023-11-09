@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:44:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 14:54:56 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:23:17 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	menage_token(char *str, int i, t_general *general)
 {
 	t_lex	*tmp;
+
 	if(general->lexer == NULL)
 	{
 		tmp = new_lex_node();
@@ -34,5 +35,24 @@ int	menage_token(char *str, int i, t_general *general)
 
 int	is_command(char *str, int i, t_general *general)
 {
-	return (0);
+	t_lex	*tmp;
+	int		j;
+
+	j = 0;
+	if(general->lexer == NULL)
+	{
+		tmp = new_lex_node();
+		general->lexer = tmp;
+	}
+	else
+	{
+		tmp = new_lex_node();
+		lex_add_last(general->lexer, tmp);
+	}
+	while(iswhite(str[i + j]) == 1 && what_token(str, i + j) == 0)
+	{
+		j++;
+		write(1, "a\n", 2);
+	}
+	return (j);
 }

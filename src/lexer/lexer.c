@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 14:52:48 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:58:03 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,15 @@ int	what_token(char *str, int i)
 
 int	iswhite(char c)
 {
-	return(c == ' ' || c > 8 && c < 14);
+	if(c == ' ' || c > 8 && c < 14)
+		return (0);
+	else
+		return (1);
 }
 
 int	jumpspace(char *str, int i)
 {
-	while(iswhite(str[i]))
+	while(iswhite(str[i]) == 0)
 		i++;
 	return (i);
 }
@@ -53,6 +56,7 @@ int	lexer(t_general *general)
 	while(general->args[i])
 	{
 		i = jumpspace(general->args, i);
+		//printf("%i\n", i);
 		if (what_token(general->args, i) != 0)
 			i += menage_token(general->args, i, general);
 		else

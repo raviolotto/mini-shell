@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:17:29 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 14:58:48 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:28:05 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int ac, char **av, char **envp)
 {
 	t_general	general;
 	t_lex		*tmp;
+	char		*inp;
 
 	// if (ac != 1 || av[1])
 	// {
@@ -28,13 +29,26 @@ int	main(int ac, char **av, char **envp)
 	// 	exit(0);
 	// }
 	init_general(&general);
-	general.args = av[1];
 	printf("\n%s\n", INTRO);
-	printf("%i\n", lexer(&general));
-	tmp = general.lexer;
-	while(tmp != NULL)
+	while(1)
 	{
-		printf("token %i\n", tmp->token);
-		tmp = tmp->next;
+		general.args = readline("mini>");
+		printf("%i\n", lexer(&general));
+		tmp = general.lexer;
+		while(tmp != NULL)
+		{
+			printf("token %i\n", tmp->token);
+			tmp = tmp->next;
+		}
 	}
+	//init_general(&general);
+	//printf("\n%s\n", INTRO);
+	//general.args = av[1];
+	//printf("%i\n", lexer(&general));
+	//tmp = general.lexer;
+	//while(tmp != NULL)
+	//{
+	//	printf("token %i\n", tmp->token);
+	//	tmp = tmp->next;
+	//}
 }

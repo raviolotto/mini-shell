@@ -6,7 +6,7 @@
 #    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2023/11/09 12:30:11 by jcardina         ###   ########.fr        #
+#    Updated: 2023/11/09 16:35:33 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ src = \
 
 OBJ = $(src:%.c=%.o)
 
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra -g -lreadline -lhistory
 
 CC = gcc
 
@@ -33,7 +33,7 @@ all: $(NAME)
 $(NAME) : $(OBJ)
 	make all bonus -C lib/libft
 	make -C lib/ft_printf
-	$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(PRINTF) -g -o minishell
+	$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(PRINTF) -o minishell
 	@echo "\033[32mhell compiled\033[0m"
 
 clean:
