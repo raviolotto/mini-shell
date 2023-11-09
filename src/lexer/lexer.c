@@ -6,17 +6,31 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/08 16:45:58 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:44:15 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mini_shell.h"
 
-int	is_token(char *str)
-{
-	if (ft_strncmp(str, "|", 1) == 0)
-		return (0);
 
+
+int	what_token(char *str, int i)
+{
+	if (str[i] == '|')
+		return (1);
+	else if (str[i] == '>')
+	{
+		if(str[i + 1] == '>')
+			return (3);
+		return (2);
+	}
+	else if (str[i] == '<')
+	{
+		if(str[i + 1] == '<')
+			return (5);
+		return (4);
+	}
+	return (0);
 }
 
 int	iswhite(char c)
@@ -38,8 +52,8 @@ int	lexer(t_general *general)
 	i = 0;
 	while(general->args[i])
 	{
-		i = jumpspace(general->args[i], i);
-		if (is_token(general->args[i]) == 0)
+		i = jumpspace(general->args, i);
+		if (what_token(general->args, i) != 0)
 			i += menage_token(general->args, i, general->lexer);
 		else
 			i += is_command(general->args, i, general->lexer);
