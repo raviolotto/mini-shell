@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 11:44:15 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:52:48 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	lexer(t_general *general)
 	{
 		i = jumpspace(general->args, i);
 		if (what_token(general->args, i) != 0)
-			i += menage_token(general->args, i, general->lexer);
+			i += menage_token(general->args, i, general);
 		else
-			i += is_command(general->args, i, general->lexer);
+			i += is_command(general->args, i, general);
 	}
 	return(i);
 }

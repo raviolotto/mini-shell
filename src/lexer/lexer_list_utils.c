@@ -1,38 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer_list.c                                       :+:      :+:    :+:   */
+/*   lexer_list_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:44:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 14:54:56 by jcardina         ###   ########.fr       */
+/*   Created: 2023/11/09 12:12:07 by jcardina          #+#    #+#             */
+/*   Updated: 2023/11/09 14:43:09 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mini_shell.h"
 
-int	menage_token(char *str, int i, t_general *general)
+t_lex	*lex_last(t_lex *head)
 {
-	t_lex	*tmp;
-	if(general->lexer == NULL)
+	t_lex *tmp;
+
+	tmp = head;
+	while(tmp->next != NULL)
 	{
-		tmp = new_lex_node();
-		general->lexer = tmp;
+		tmp = tmp->next;
 	}
-	else
-	{
-		tmp = new_lex_node();
-		lex_add_last(general->lexer, tmp);
-	}
-	tmp->token = what_token(str, i);
-	if(tmp->token == 3 || tmp->token == 5)
-		return (2);
-	else
-		return(1);
+	return (tmp);
 }
 
-int	is_command(char *str, int i, t_general *general)
+t_lex	*new_lex_node(void)
 {
-	return (0);
+	t_lex	*tmp;
+
+	tmp = malloc(sizeof(t_lex));
+	if (!tmp)
+		return (NULL);
+	else if (tmp)
+	{
+		tmp->token = 0;
+		tmp->next = NULL;
+	}
+	return (tmp);
 }
+
+void	lex_add_last(t_lex *head, t_lex *new)
+{
+	t_lex	*tmp;
+
+	tmp = lex_last(head);
+	tmp->next = new;
+	return ;
+}
+
+
