@@ -6,13 +6,11 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 15:58:03 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:51:53 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mini_shell.h"
-
-
 
 int	what_token(char *str, int i)
 {
@@ -41,26 +39,20 @@ int	iswhite(char c)
 		return (1);
 }
 
-int	jumpspace(char *str, int i)
-{
-	while(iswhite(str[i]) == 0)
-		i++;
-	return (i);
-}
-
 int	lexer(t_general *general)
 {
 	int i;
 
 	i = 0;
-	while(general->args[i])
+	while(general->args[i] != '\0')
 	{
-		i = jumpspace(general->args, i);
+		while (iswhite(general->args[i]) == 0)
+			i++;
+		//i += jumpspace(general->args, i);
 		//printf("%i\n", i);
-		if (what_token(general->args, i) != 0)
-			i += menage_token(general->args, i, general);
-		else
-			i += is_command(general->args, i, general);
+		i += menage_token(general->args, i, general);
+		//write(1, "lexer\n", 6);
+		write(1, "lexer\n", 6);
 	}
 	return(i);
 }

@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:16:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 14:41:51 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:37:13 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 typedef struct s_lex
 {
 	char			*command;
-	int				token;  //1 = |, 2 = >, 3 = >>, 4 = <, 5 = <<, 0 = é un comando
+	int				token;  //1 = |, 2 = >, 3 = <, 4 = >>, 5 = <<, 0 = é un comando
 	struct s_lex	*next;
 }	t_lex;
 
