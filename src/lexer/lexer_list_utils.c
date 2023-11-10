@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:12:07 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 14:43:09 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:56:42 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,30 @@ void	lex_add_last(t_lex *head, t_lex *new)
 	tmp->next = new;
 	return ;
 }
+
+void	free_lex(t_lex *head)
+{
+	t_lex	*tmp;
+
+	while(head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+}
+
+// int	free_all(t_listx **stack_a)
+// {
+// 	t_listx	*tmp;
+
+// 	while (*stack_a)
+// 	{
+// 		tmp = *stack_a;
+// 		*stack_a = (*stack_a)->next;
+// 		free(tmp);
+// 	}
+// 	return (0);
+// }
 
 

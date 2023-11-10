@@ -6,7 +6,7 @@
 #    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2023/11/09 16:50:09 by jcardina         ###   ########.fr        #
+#    Updated: 2023/11/10 15:13:24 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(NAME) : $(OBJ)
 	make all bonus -C lib/libft
 	make -C lib/ft_printf
 	$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(PRINTF)  -o minishell -lreadline -lhistory -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include
-	@echo "\033[32mhell compiled\033[0m"
+	@echo "\033[32mmeow compiled\033[0m"
 
 clean:
 	make clean -C lib/libft
