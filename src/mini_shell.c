@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:17:29 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/10 15:56:21 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:48:40 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,16 @@ int	main(int ac, char **av, char **envp)
 	printf("\n%s\n", INTRO);
 	while(1)
 	{
-		general.args = readline("kytti shell>");
+		general.args = readline("zampe di burro shell>");
 		lexer(&general);
 		tmp = general.lexer;
-		//while(tmp != NULL)
-		for(int i = 0; i < 3; i++)
+		while(tmp != NULL)
 		{
 			printf("token %i\n", tmp->token);
 			tmp = tmp->next;
 		}
-		//free_lex(general.lexer);
+
+		afalcons(general.lexer);
+		general.lexer = NULL;
 	}
 }
