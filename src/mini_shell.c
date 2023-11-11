@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:17:29 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/10 16:48:40 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:55:11 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	main(int ac, char **av, char **envp)
 		return(0);
 	}
 	init_general(&general);
+	printf(PINK);
 	printf("\n%s\n", INTRO);
+	printf("\n%s\n", HELLO2);
+	printf(RESET);
 	while(1)
 	{
 		general.args = readline("zampe di burro shell>");
@@ -38,6 +41,8 @@ int	main(int ac, char **av, char **envp)
 		while(tmp != NULL)
 		{
 			printf("token %i\n", tmp->token);
+			printf("pipe steatus %i\n", tmp->pipe_status);
+			printf("command %s\n", tmp->command);
 			tmp = tmp->next;
 		}
 

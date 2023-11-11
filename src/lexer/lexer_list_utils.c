@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:12:07 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/10 16:47:22 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/11 18:57:05 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_lex	*new_lex_node(void)
 	else if (tmp)
 	{
 		tmp->token = 0;
+		tmp->pipe_status = 0;
 		tmp->next = NULL;
 	}
 	return (tmp);
@@ -52,6 +53,7 @@ void	afalcons(t_lex *node)
 {
 	if(node->next)
 		afalcons(node->next);
+	//free(node->command);
 	free(node);
 }
 
