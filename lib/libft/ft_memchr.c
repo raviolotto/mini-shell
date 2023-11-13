@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:43:00 by jcardina          #+#    #+#             */
-/*   Updated: 2023/01/21 20:55:06 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:46:32 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (((const char *)s)[i] == (const char) c)
 			return ((void *) s + i);
-	i++;
+		i++;
 	}
 	return (NULL);
 }

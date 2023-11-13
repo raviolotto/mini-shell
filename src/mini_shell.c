@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:17:29 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/11 18:55:11 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:03:11 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,21 @@ int	main(int ac, char **av, char **envp)
 		return(0);
 	}
 	init_general(&general);
-	printf(PINK);
-	printf("\n%s\n", INTRO);
-	printf("\n%s\n", HELLO2);
-	printf(RESET);
-	while(1)
+	printf(PINK"\n%s\n", INTRO);
+	printf("\n%s\n"RESET, HELLO2);
+	//for(int i = 0; i < 3; i ++)
+	while (1)
 	{
-		general.args = readline("zampe di burro shell>");
+		general.args = readline("kitty shell>");
 		lexer(&general);
 		tmp = general.lexer;
 		while(tmp != NULL)
 		{
 			printf("token %i\n", tmp->token);
 			printf("pipe steatus %i\n", tmp->pipe_status);
-			printf("command %s\n", tmp->command);
+			printf("command %s\n\n", tmp->command);
 			tmp = tmp->next;
 		}
-
 		afalcons(general.lexer);
 		general.lexer = NULL;
 	}

@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:31:51 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/09 16:33:24 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:47:56 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,4 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-
-
-# endif
+#endif

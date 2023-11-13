@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:35:26 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/11 18:26:30 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:41:58 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,6 @@ void	lex_add_last(t_lex *head, t_lex *new);
 int		iswhite(char c);
 void	free_lex(t_lex *head);
 void	afalcons(t_lex *node);
+int		pipe_status(t_general *general);
+
 #endif

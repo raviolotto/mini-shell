@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:08:24 by jcardina          #+#    #+#             */
-/*   Updated: 2023/03/09 12:08:26 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:46:07 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (*(str1 + i) != *(str2 + i))
 			return (*(str1 + i) - *(str2 + i));
-	i++;
+		i++;
 	}
 	return (0);
 }

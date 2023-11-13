@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:12:07 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/11 18:57:05 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:52:09 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_lex	*lex_last(t_lex *head)
 {
-	t_lex *tmp;
+	t_lex	*tmp;
 
 	tmp = head;
-	while(tmp->next != NULL)
+	while (tmp->next != NULL)
 	{
 		tmp = tmp->next;
 	}
@@ -51,10 +51,8 @@ void	lex_add_last(t_lex *head, t_lex *new)
 
 void	afalcons(t_lex *node)
 {
-	if(node->next)
+	if (node->next)
 		afalcons(node->next);
-	//free(node->command);
+	free(node->command);
 	free(node);
 }
-
-

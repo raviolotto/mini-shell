@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/11 18:37:22 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:51:31 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	what_token(char *str, int i)
 		return (1);
 	else if (str[i] == '>')
 	{
-		if(str[i + 1] == '>')
+		if (str[i + 1] == '>')
 			return (3);
 		return (2);
 	}
 	else if (str[i] == '<')
 	{
-		if(str[i + 1] == '<')
+		if (str[i + 1] == '<')
 			return (5);
 		return (4);
 	}
@@ -33,7 +33,7 @@ int	what_token(char *str, int i)
 
 int	iswhite(char c)
 {
-	if(c == ' ' || c > 8 && c < 14)
+	if (c == ' ' || c > 8 && c < 14)
 		return (0);
 	else
 		return (1);
@@ -46,12 +46,12 @@ int	lexer(t_general *general)
 
 	i = 0;
 	p = 0;
-	while(general->args[i] != '\0')
+	while (general->args[i] != '\0')
 	{
 		while (iswhite(general->args[i]) == 0)
 			i++;
 		i += menage_token(general->args, i, general, &p);
 	}
-
-	return(i);
+	pipe_status(general);
+	return (i);
 }
