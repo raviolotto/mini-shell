@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:16:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/14 16:06:03 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:11:08 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_lex
 typedef struct s_general
 {
 	char			*args;
-	int				flag1;
 	struct s_lex	*lexer;
 }	t_general;
 

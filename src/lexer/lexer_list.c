@@ -6,11 +6,21 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:44:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/14 16:24:00 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/14 17:41:12 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mini_shell.h"
+
+int	quotes(char *str, int j)
+{
+	if(str[j] == 34)
+	{
+		j++;
+		while(str[j] != 34 && str[j])
+	}
+
+}
 
 int	pipe_status(t_general *general)
 {
@@ -73,8 +83,16 @@ int	menage_token(char *str, int i, t_general *general, int *p)
 	else if (tmp->token == 3 || tmp->token == 5)
 		j++;
 	while (what_token(str, i + j) == 0 && str[i + j] != '\0')
-		j++;
-	if (general->flag1 == 0)
-		tmp->command = ft_substr(str, i, j);
+	// {
+	// 	if (str[i + j] == 34 || str[i + j] == 34)
+	// 	{
+	// 		j++;
+	// 		while (str[i + j] != 34 && str[i + j] != 34 && str[i + j] != '\0')
+	// 			j++;
+	// 	}
+	// 	else
+			j++;
+	//}
+	tmp->command = ft_substr(str, i, j);
 	return (j);
 }
