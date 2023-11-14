@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:17:29 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/13 17:03:11 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:24:54 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av, char **envp)
 	if (ac != 1)
 	{
 		printf(RED "error dumb imput\n" RESET);
-		return(0);
+		return (0);
 	}
 	init_general(&general);
 	printf(PINK"\n%s\n", INTRO);
@@ -37,7 +37,7 @@ int	main(int ac, char **av, char **envp)
 		general.args = readline("kitty shell>");
 		lexer(&general);
 		tmp = general.lexer;
-		while(tmp != NULL)
+		while (tmp != NULL)
 		{
 			printf("token %i\n", tmp->token);
 			printf("pipe steatus %i\n", tmp->pipe_status);

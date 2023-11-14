@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:44:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/13 17:04:25 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/14 16:24:00 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	menage_token(char *str, int i, t_general *general, int *p)
 		j++;
 	while (what_token(str, i + j) == 0 && str[i + j] != '\0')
 		j++;
-	tmp->command = ft_substr(str, i, j);
+	if (general->flag1 == 0)
+		tmp->command = ft_substr(str, i, j);
 	return (j);
 }
