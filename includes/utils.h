@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structure.h                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 13:16:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/23 14:29:37 by jcardina         ###   ########.fr       */
+/*   Created: 2023/11/23 14:44:08 by jcardina          #+#    #+#             */
+/*   Updated: 2023/11/24 14:36:24 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTURE_H
-# define STRUCTURE_H
+#ifndef UTILS_H
+# define UTILS_H
 
-typedef struct s_lex
-{
-	char			*command;
-	char			**command2;
-	int				token;	//1 = |, 2 = >, 3 = <, 4 = >>, 5 = <<, 0 = é un comando
-	int				pipe_status;	//0 = prima pipe, 1 pipe in mezzo, 2 pipe finale
-	struct s_lex	*next;
-}	t_lex;
-
-typedef struct s_general
-{
-	char			*args;
-	char			**envp2;
-	struct s_lex	*lexer;
-}	t_general;
+void	free_matrix(char **matrix);
+char	**matrix_dup(char **matrix);
+void	print_matrix(char **matrix);
 
 #endif

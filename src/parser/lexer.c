@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/14 17:05:26 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:00:35 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,6 @@ int	lexer(t_general *general)
 	{
 		while (iswhite(general->args[i]) == 0)
 			i++;
-		// if (general->args[i] == 34 || general->args[i] == 39)
-		// {
-		// 	if (general->flag1 == 1)
-		// 		general->flag1 = 0;
-		// 	else
-		// 		general->flag1 = 1;
-		// }
 		i += menage_token(general->args, i, general, &p);
 	}
 	pipe_status(general);

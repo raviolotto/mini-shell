@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:31:51 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/13 16:47:56 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:46:11 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <readline/history.h>
+# include <readline/readline.h>
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 # include "structure.h"
 # include "parser.h"
 # include "visual.h"
-# include <readline/readline.h>
-# include <readline/history.h>
+# include "utils.h"
 
 #endif

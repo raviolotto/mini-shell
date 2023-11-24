@@ -6,7 +6,7 @@
 #    By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 18:22:29 by jcardina          #+#    #+#              #
-#    Updated: 2023/11/10 15:13:24 by jcardina         ###   ########.fr        #
+#    Updated: 2023/11/23 14:47:39 by jcardina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ PRINTF = lib/ft_printf/libftprintf.a
 
 src = \
 		src/mini_shell.c\
-		src/lexer/lexer.c\
-		src/lexer/lexer_list.c\
-		src/lexer//lexer_list_utils.c\
+		src/parser/lexer.c\
+		src/parser/lexer_list.c\
+		src/parser/lexer_list_utils.c\
+		src/utils/general_utils.c\
 
 OBJ = $(src:%.c=%.o)
 

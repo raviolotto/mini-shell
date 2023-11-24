@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:44:18 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/14 17:41:12 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:29:13 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 
 int	quotes(char *str, int j)
 {
-	if(str[j] == 34)
-	{
-		j++;
-		while(str[j] != 34 && str[j])
-	}
+	int	j2;
 
+	j2 = 0;
+	if (str[j] == 34)
+	{
+		j2++;
+		while (str[j + j2] != 34 && str[j + j2] != '\0')
+			j2++;
+		return (j2);
+	}
+	else if (str[j] == 39)
+	{
+		j2++;
+		while (str[j + j2] != 39 && str[j + j2] != '\0')
+			j2++;
+		return (j2);
+	}
+	return (0);
 }
 
 int	pipe_status(t_general *general)
@@ -40,7 +52,7 @@ int	pipe_status(t_general *general)
 	{
 		if (tmp->token == 1)
 			i--;
-		if (i == 0)
+		if (i == 0 && tmp->token == 1)
 			tmp->pipe_status = 2;
 		tmp = tmp->next;
 	}
@@ -83,16 +95,11 @@ int	menage_token(char *str, int i, t_general *general, int *p)
 	else if (tmp->token == 3 || tmp->token == 5)
 		j++;
 	while (what_token(str, i + j) == 0 && str[i + j] != '\0')
-	// {
-	// 	if (str[i + j] == 34 || str[i + j] == 34)
-	// 	{
-	// 		j++;
-	// 		while (str[i + j] != 34 && str[i + j] != 34 && str[i + j] != '\0')
-	// 			j++;
-	// 	}
-	// 	else
-			j++;
-	//}
+	{
+		if (str[i + j] == 34 || str[i + j] == 39)
+			j += quotes(str, j);
+		j++;
+	}
 	tmp->command = ft_substr(str, i, j);
 	return (j);
 }

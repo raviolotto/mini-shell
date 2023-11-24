@@ -6,16 +6,20 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:17:29 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/14 17:11:15 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:37:38 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_shell.h"
 
-void	init_general(t_general *general)
+void	init(t_general *general, char **envp)
 {
 	general->lexer = NULL;
+	general->envp2 = matrix_dup(envp);
+	printf(PINK"\n%s\n", INTRO);
+	printf("\n%s\n"RESET, HELLO2);
 }
+
 
 int	main(int ac, char **av, char **envp)
 {
@@ -28,10 +32,11 @@ int	main(int ac, char **av, char **envp)
 		printf(RED "error dumb imput\n" RESET);
 		return (0);
 	}
-	init_general(&general);
-	printf(PINK"\n%s\n", INTRO);
-	printf("\n%s\n"RESET, HELLO2);
-	//for(int i = 0; i < 3; i ++)
+	init(&general, envp);
+	print_matrix(general.envp2);
+	write(1, "\n\n", 2);
+	print_matrix(envp);
+	return(0);
 	while (1)
 	{
 		general.args = readline("kitty shell>");
