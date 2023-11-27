@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer.c                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:23:21 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/22 16:00:35 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:48:21 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,12 @@ int	lexer(t_general *general)
 	}
 	pipe_status(general);
 	return (i);
+}
+
+int	parser(t_general *general)
+{
+	lexer(general);
+	if (list_commander(general) == 1)
+		return(1);
+	return(0);
 }

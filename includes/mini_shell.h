@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:31:51 by jcardina          #+#    #+#             */
-/*   Updated: 2023/11/23 14:46:11 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:27:05 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,7 @@
 # include "utils.h"
 
 #endif
+
+//appunti
+
+//se metto una sola pipe il pipe status é due dovrebbe essere 0
