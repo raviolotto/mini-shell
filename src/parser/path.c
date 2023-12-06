@@ -12,19 +12,46 @@
 
 #include "../../includes/mini_shell.h"
 
-int	pathfinder(char **matrixtmp, t_general *general)
+char *pathfinder(char *command, char **path)
 {
-	char	*path;
+	char *result = NULL;
+	int i = 0;
 
-	
+	while (path[i] != NULL)
+	{
+		char *tempPath = ft_strjoin(path[i], "/");
+		if (!tempPath) {
+            perror("Errore nell'allocazione di memoria");
+            exit(EXIT_FAILURE);
+        }
+
+        char *fullPath = ft_strjoin(tempPath, command);
+        free(tempPath);
+
+        if (!fullPath) {
+            perror("Errore nell'allocazione di memoria");
+            exit(EXIT_FAILURE);
+        }
+
+        if (access(fullPath, F_OK | X_OK) == 0) {
+            result = fullPath;
+            break;
+        }
+		free(fullPath);
+		i++;
+	}
+	if (result == NULL)
+		fprintf(stderr, "Il comando '%s' non è stato trovato nei percorsi specificati.\n", command);
+	return (result);
 }
-
 int	build_matrix(char *str, t_lex *node, t_general *general)
 {
-	char	**matrixtmp;
-
-	matrixtmp = ft_split(str, ' ');
-	node->command2 = pathfinder(matrixtmp, general);
+	char	*tmp;
+	
+	node->command2 = ft_split(str, ' ');
+	tmp = pathfinder(node->command2[0], general->path);
+	free(node->command2[0]);
+	node->command2[0] = tmp;
 	return (0);
 }
 
@@ -35,7 +62,8 @@ int	list_commander(t_general *general)
 	tmp = general->lexer;
 	while(tmp)
 	{
-		build_matrix(tmp->command, tmp, general);
+		if(tmp->token == 0)
+			build_matrix(tmp->command, tmp, general);
 		tmp = tmp->next;
 	}
 }

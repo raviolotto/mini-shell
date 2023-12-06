@@ -33,7 +33,6 @@ int	main(int ac, char **av, char **envp)
 		return (0);
 	}
 	init(&general, envp);
-	print_matrix(general.path);
 	while (1)
 	{
 		general.args = readline("kitty shell>");
@@ -43,7 +42,9 @@ int	main(int ac, char **av, char **envp)
 		{
 			printf("token %i\n", tmp->token);
 			printf("pipe steatus %i\n", tmp->pipe_status);
-			printf("command %s\n\n", tmp->command);
+			printf("command %s\n", tmp->command);
+			print_matrix(tmp->command2);
+			printf("\n");
 			tmp = tmp->next;
 		}
 		afalcons(general.lexer);

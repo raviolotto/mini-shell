@@ -50,6 +50,8 @@ void	print_matrix(char **matrix)
 	int	i;
 
 	i = 0;
+	if (matrix == NULL)
+		return;
 	while(matrix[i] != NULL)
 	{
 		printf("%s\n", matrix[i]);

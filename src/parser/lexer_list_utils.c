@@ -35,6 +35,7 @@ t_lex	*new_lex_node(void)
 	{
 		tmp->token = 0;
 		tmp->pipe_status = 0;
+		tmp->command2 = NULL;
 		tmp->next = NULL;
 	}
 	return (tmp);
